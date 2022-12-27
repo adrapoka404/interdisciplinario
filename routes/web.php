@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\EditoresController;
+use App\Http\Controllers\Admin\NoticiasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('editores', EditoresController::class)->names('editores');
+    Route::resource('noticias', NoticiasController::class)->names('noticias');
 });
