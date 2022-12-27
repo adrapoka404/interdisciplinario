@@ -22,17 +22,17 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.productos') }}" :active="request()->routeIs('productos')">
+                    <x-jet-nav-link href="{{ route('productos.index') }}" :active="request()->routeIs('productos')">
                         {{ __('Aydee') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.categorias') }}" :active="request()->routeIs('categorias')">
+                    <x-jet-nav-link href="{{ route('categorias.index') }}" :active="request()->routeIs('categorias')">
                         {{ __('Oralia') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.noticias') }}" :active="request()->routeIs('noticias')">
+                    <x-jet-nav-link href="{{ route('noticias.index') }}" :active="request()->routeIs('noticias')">
                         {{ __('Jaziel') }}
                     </x-jet-nav-link>
                 </div>
