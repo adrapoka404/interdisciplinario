@@ -1,10 +1,4 @@
 <?php
-<<<<<<< HEAD
-use App\Http\Controllers\Admin\ProductosController;
-=======
-
-use App\Http\Controllers\Admin\CategoriasController;
->>>>>>> 998ccde56ede48fa6c3298ced346ede506e4669d
 use App\Http\Controllers\Admin\EditoresController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,10 +27,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('editores', EditoresController::class)->names('editores');
-<<<<<<< HEAD
 
     Route::resource('productos', ProductosController::class)->names('productos');
-=======
-    Route::resource('categorias', CategoriasController::class)->names('categorias');
->>>>>>> 998ccde56ede48fa6c3298ced346ede506e4669d
 });
+
