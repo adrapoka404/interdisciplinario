@@ -14,7 +14,7 @@ class EditoresController extends Controller
      */
     public function index()
     {
-        return "hello";
+        return "hello soy el controller para editores";
     }
 
     /**
