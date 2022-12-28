@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoriasController;
 use App\Http\Controllers\Admin\EditoresController;
 use App\Http\Controllers\Admin\NoticiasController;
+use App\Http\Controllers\Admin\ProductosController;
 use Illuminate\Support\Facades\Route;
 
 /*
