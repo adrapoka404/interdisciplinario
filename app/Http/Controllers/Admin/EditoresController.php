@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Editor;
 use Illuminate\Http\Request;
 
 class EditoresController extends Controller
@@ -14,7 +15,10 @@ class EditoresController extends Controller
      */
     public function index()
     {
-        return "hello soy el controller para editores";
+        $editors = Editor::orderBy('id', 'desc')->paginate(2);
+        
+        return view('admin.editores.index', compact('editors'));
+
     }
 
     /**
@@ -24,7 +28,7 @@ class EditoresController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.editores.create');
     }
 
     /**
@@ -35,7 +39,18 @@ class EditoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'mail'          => 'required',
+            'speciality'    => 'required',
+            'semblance'     => 'required',
+            'status'        => 'required'
+        ]);
+
+        $editor = new Editor();
+        $editor->create($request->all());
+
+        return redirect()->route('editores.index');
     }
 
     /**
@@ -57,7 +72,9 @@ class EditoresController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editor = Editor::find($id);
+        
+        return view('admin.editores.edit', compact('editor'));
     }
 
     /**
@@ -69,7 +86,24 @@ class EditoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'mail'          => 'required',
+            'speciality'    => 'required',
+            'semblance'     => 'required',
+            'status'        => 'required'
+        ]);
+
+        $editor = Editor::find($id);
+        $editor->name       = $request->name;
+        $editor->mail       = $request->mail;
+        $editor->speciality = $request->speciality;
+        $editor->semblance  = $request->semblance;
+        $editor->status     = $request->status;
+
+        $editor->save();
+
+        return redirect()->route('editores.index');
     }
 
     /**
@@ -80,6 +114,15 @@ class EditoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $editor = Editor::find($id);
+        
+        if($editor->status == 0 )
+            $editor->status     = 1;
+        else
+            $editor->status     = 0;
+
+        $editor->save();
+
+        return redirect()->route('editores.index');
     }
 }

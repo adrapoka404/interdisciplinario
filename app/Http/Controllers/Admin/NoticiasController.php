@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Noty;
+use App\Models\Notice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,8 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        
+        $notices = notice::orderBy('id', 'desc')->paginate(2);
+        return view('admin.noticias.index', compact('notices'));
     }
 
     /**
@@ -25,7 +26,8 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        //
+        // aqui creas tu noticia
+        return view('admin.noticias.create');
     }
 
     /**
@@ -36,7 +38,19 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'editor'          => 'required',
+            'case'           => 'required',
+            'created_at'           => 'required',
+            'status'     => 'required',
+            
+        ]);
+
+        $notice = new Notice();
+        $notice->create($request->all());
+
+        return redirect()->route('noticias.index');
     }
 
     /**
@@ -59,6 +73,9 @@ class NoticiasController extends Controller
     public function edit($id)
     {
         //
+        $notice = Notice::find($id);
+        
+        return view('admin.noticias.edit', compact('notice'));
     }
 
     /**
@@ -71,6 +88,28 @@ class NoticiasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name'          => 'required',
+            'editor'        => 'required',
+            'case'          => 'required',
+            'created_at'          => 'required',
+            'status'          => 'required',
+            
+        ]);
+
+        $notice = Notice::find($id);
+        $notice->name       = $request->name;
+        $notice->editor       = $request->editor;
+        $notice->case = $request->case;
+        $notice->created_at = $request->created_at;
+        $notice->status = $request->status;
+        
+
+        $notice->save();
+
+        return redirect()->route('noticias.index');
+
+
     }
 
     /**
@@ -82,5 +121,17 @@ class NoticiasController extends Controller
     public function destroy($id)
     {
         //
+        $notice = Notice::find($id);
+        
+        if($notice->status == 0 )
+            $notice->status     = 1;
+        else
+            $notice->status     = 0;
+
+        $notice->save();
+
+        return redirect()->route('noticias.index');
+
+        
     }
 }
