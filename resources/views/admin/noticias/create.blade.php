@@ -1,69 +1,68 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Catalogo de Editores') }}
+            {{ __('Catalogo de Noticias') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <a href="{{route('editores.index')}}" class="bg-blue-300 px-5 mx-5 rounded-full hover:bg-blue-600 hover:text-white">Volver a la lista</a>
-                <form action="{{route('editores.store')}}" method="POST">
+                <a href="{{route('noticias.index')}}" class="bg-blue-300 px-5 mx-5 rounded-full hover:bg-blue-600 hover:text-white">Volver a la lista</a>
+                
+                
+                <form action="{{route('noticias.store')}}" method="POST">
                     @csrf
                 <div id="formulario" class="">
                     <div class="row w-full">
                         <div class="w-1/3 inline text-right">
-                        Nombre:
+                        Nombre de la noticia:
                         <span class=" text-sm text-blue-300">Texto de ayuda</span>
                         @error('name')
                             {{$message}}
                         @enderror
                         </div>
+
                         <div class="w-2/3 inline">
                             <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300"  >
                         </div>
                     </div>
+
+
                     <div class="row w-full">
                         <div class="w-1/3 inline text-right">
-                        Correo electronico:
+                        Editor que lo Publica:
                         <span class=" text-sm text-blue-300">Texto de ayuda</span>
-                        @error('mail')
+                        @error('editor')
                             {{$message}}
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="mail" name="mail" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="editor" name="editor" id="" class=" rounded-lg border-3 border-red-300"  >
                         </div>
                     </div>
+
+
+                    
                     <div class="row w-full">
                         <div class="w-1/3 inline text-right">
-                        Especialidad:
+                        Caso de la Noticia
                         <span class=" text-sm text-blue-300">Texto de ayuda</span>
-                        @error('speciality')
+                        @error('case')
                             {{$message}}
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="text" name="speciality" id="" class=" rounded-lg border-3 border-red-300"  >
-                        </div>
-                    </div>
-                    <div class="row w-full">
-                        <div class="w-1/3 inline text-right">
-                        Semblanza:
-                        <span class=" text-sm text-blue-300">Texto de ayuda</span>
-                        @error('semblance')
-                            {{$message}}
-                        @enderror
-                        </div>
-                        <div class="w-2/3 inline">
-                            <textarea name="semblance" id="" cols="30" rows="10" class=" rounded-lg border-3 border-red-300">
+                            <textarea name="case" id="" cols="30" rows="10" class=" rounded-lg border-3 border-red-300">
 
                             </textarea>
                         </div>
                     </div>
 
+
                     
+
+
                     <div class="row w-full">
                         <div class="w-1/3 inline text-right">
                         Estado:
@@ -79,6 +78,9 @@
                             </select>
                         </div>
                     </div>
+
+                    
+                
                     <input type="submit" value="Crear" class="bg-blue-300 hover:bg-blue-600 hover:text-white font-semibold m-3 rounded-full">
                 </div>
             </form>

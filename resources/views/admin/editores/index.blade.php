@@ -18,9 +18,12 @@
                         <div>
                             {{$editor->mail}}
                         </div>
+
+
                         <div class="@if($editor->status == 1) bg-green-300 @else bg-orange-200 @endif">
                         {{$editor->speciality}}
                         </div>
+                        
                         <a href="{{route('editores.edit', $editor->id)}}">Editar</a>
                         <div>
                             <form action="{{route('editores.destroy', $editor)}}" method="post">
