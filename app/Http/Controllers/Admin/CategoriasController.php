@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
@@ -14,7 +15,10 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        return "Hola desde el controlador de categorias, metodo index";
+        // return "Hola desde el controlador de categorias, metodo index";
+        $categories = Category::orderBy('id', 'desc')->paginate(2);
+        
+        return view('admin.categorias.index', compact('categories'));
     }
 
     /**
@@ -25,6 +29,7 @@ class CategoriasController extends Controller
     public function create()
     {
         //
+        return view('admin.categorias.create');
     }
 
     /**
@@ -36,6 +41,16 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+             'status'        => 'required'
+        ]);
+
+        $category = new Category();
+        $category->create($request->all());
+
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -58,6 +73,9 @@ class CategoriasController extends Controller
     public function edit($id)
     {
         //
+        $category = Category::find($id);
+        
+        return view('admin.categorias.edit', compact('category'));
     }
 
     /**
@@ -70,6 +88,20 @@ class CategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+            'status'        => 'required'
+        ]);
+
+        $category = Category::find($id);
+        $category->name       = $request->name;
+        $category->description = $request->description;
+        $category->status     = $request->status;
+        
+        $category->save();
+
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -81,5 +113,16 @@ class CategoriasController extends Controller
     public function destroy($id)
     {
         //
+        $category = Category::find($id);
+        
+         if($category->status == 0 )
+             $category->status     = 1;
+         else
+             $category->status     = 0;
+
+         $category->save();
+
+        return redirect()->route('categorias.index');
     }
 }
+
