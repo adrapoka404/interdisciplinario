@@ -49,12 +49,25 @@
                     </div>
                     <div class="row w-full">
                         <div class="w-1/3 inline text-right">
-                        Estado:
+                        Descripcion:
                         <span class=" text-sm text-blue-300">Texto de ayuda</span>
                         @error('description')
                             {{$message}}
                         @enderror
                         </div>
+                        <div class="w-2/3 inline">
+                            <input type="text" name="description" id="" class=" rounded-lg border-3 border-red-300"  >
+                        </div>
+                    </div>
+                    <div class="row w-full">
+                        <div class="w-1/3 inline text-right">
+                        Estado:
+                        <span class=" text-sm text-blue-300">Texto de ayuda</span>
+                        @error('status')
+                            {{$message}}
+                        @enderror
+                        </div>
+                        
                         <div class="w-2/3 inline">
                             <select name="status" id="" class="rounded-lg border-3 border-red-300">
                                 <option value="0">Desactivado</option>
