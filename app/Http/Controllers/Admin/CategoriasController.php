@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\CategoriasRequest;
+
 class CategoriasController extends Controller
 {
     /**
@@ -38,14 +40,15 @@ class CategoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriasRequest $request)
     {
         //
-        $request->validate([
-            'name'          => 'required',
-            'description'   => 'required',
-             'status'        => 'required'
-        ]);
+       
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'description'   => 'required',
+        //      'status'        => 'required'
+        // ]);
 
         $category = new Category();
         $category->create($request->all());
@@ -85,15 +88,15 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoriasRequest $request, $id)
     {
         //
-        $request->validate([
-            'name'          => 'required',
-            'description'   => 'required',
-            'status'        => 'required'
-        ]);
-
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'description'   => 'required',
+        //     'status'        => 'required'
+        // ]);
+                
         $category = Category::find($id);
         $category->name       = $request->name;
         $category->description = $request->description;

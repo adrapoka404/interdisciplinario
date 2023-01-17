@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ProductosRequest;
+
 class ProductosController extends Controller
 {
     /**
@@ -37,15 +39,15 @@ class ProductosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductosRequest $request)
     {
-        $request->validate([
-            'name'          => 'required',
-            'cost'          => 'required',
-            'mark'    => 'required',
-            'description'     => 'required',
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'cost'          => 'required',
+        //     'mark'    => 'required',
+        //     'description'     => 'required',
           
-        ]);
+        // ]);
 
         $product = new Product();
         $product->create($request->all());
@@ -84,17 +86,9 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductosRequest $request, $id)
     {
-        $request->validate([
-            'name'          => 'required',
-            'cost'          => 'required',
-            'mark'    => 'required',
-            'description'     => 'required',
-            'status'     => 'required',
-
-        ]);
-        
+       
         $product = Product::find($id);
         $product->name       = $request->name;
         $product->cost      = $request->cost;

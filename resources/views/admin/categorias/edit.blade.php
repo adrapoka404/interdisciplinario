@@ -16,20 +16,24 @@
                     @csrf
                     @method('put')
                         <div class="row">
-                            <label class="block m-4 px-8 ">
-                                <span class="text-gray-700">Categoría</span>
-                                @error('name')
+
+                            @error('name')
                                 {{$message}}
                                 @enderror
-                                <input type="text" name="name" value="{{$category->name}}" class="m-4 rounded-lg mt-1 inline " placeholder="A" />
+                            <label class="block m-4 px-8 ">
+                                <span class="text-gray-700">Categoría</span>
+                                
+                                <input type="text" name="name" value="{{$category->name}}" class="m-4 rounded-lg mt-1 inline " placeholder="A"  />
                             </label>
                         </div>
                         <div class="row">
+
+                            @error('description')
+                            {{$message}}
+                            @enderror
                             <label class="block m-4 px-8 ">
                                 <span class="text-gray-700">Descripción</span>
-                                @error('description')
-                                {{$message}}
-                                @enderror
+                               
                                 <input type="text" name="description" value="{{$category->description}}" class="m-4 rounded-lg mt-1 inline " placeholder="Categoria A" />
                             </label>
                         </div>
