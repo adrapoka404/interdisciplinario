@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="w-2/3 inline">
-                            <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300" value="{{ old('name') }}" >
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="editor" name="editor" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="editor" name="editor" id="" class=" rounded-lg border-3 border-red-300" value="{{ old('editor') }}"  >
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
                         </div>
                         <div class="w-2/3 inline">
                             <textarea name="case" id="" cols="30" rows="10" class=" rounded-lg border-3 border-red-300">
-
+                               {{ old('case') }}
                             </textarea>
                         </div>
                     </div>

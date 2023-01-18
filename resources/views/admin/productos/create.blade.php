@@ -20,7 +20,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300"  value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="row w-full">
@@ -32,7 +32,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="text" name="cost" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="cost" id="" class=" rounded-lg border-3 border-red-300" value="{{ old('cost') }}" >
                         </div>
                     </div>
                     <div class="row w-full">
@@ -44,16 +44,14 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="text" name="mark" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="mark" id="" class=" rounded-lg border-3 border-red-300"  value="{{ old('mark') }}">
                         </div>
                     </div>
                     <div class="row w-full">
                         <div class="w-1/3 inline text-right">
                         Descripcion:
                         <span class=" text-sm text-blue-300">Texto de ayuda</span>
-                        @error('description')
-                            {{$message}}
-                        @enderror
+                       
                         </div>
                         <div class="w-2/3 inline">
                             <input type="text" name="description" id="" class=" rounded-lg border-3 border-red-300"  >

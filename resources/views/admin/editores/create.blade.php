@@ -21,7 +21,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="name" id="" class=" rounded-lg border-3 border-red-300" value="{{ old('name') }}" >
                         </div>
                     </div>
                     <div class="row w-full">
@@ -33,7 +33,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="mail" name="mail" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="mail" name="mail" id="" class=" rounded-lg border-3 border-red-300" value="{{ old('mail') }}"  >
                         </div>
                     </div>
                     <div class="row w-full">
@@ -45,7 +45,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="text" name="speciality" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="speciality" id="" class=" rounded-lg border-3 border-red-300" value="{{ old('speciality') }}" >
                         </div>
                     </div>
                     <div class="row w-full">
@@ -57,9 +57,10 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <textarea name="semblance" id="" cols="30" rows="10" class=" rounded-lg border-3 border-red-300">
-
+                            <textarea name="semblance" id="" cols="30" rows="10" class=" rounded-lg border-3 border-red-300"  >
+                                {{ old('semblance') }}
                             </textarea>
+                           
                         </div>
                     </div>
 
