@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\EditoresController;
 use App\Http\Controllers\Admin\NoticiasController;
 use App\Http\Controllers\Admin\ProductosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\ivewire\ShowPosts;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::middleware(['auth:anctum','verified'])->get('/productos',function(){
+        return view('productos');
+    })->name('productos');
 
     Route::resource('editores', EditoresController::class)->names('editores');
     Route::resource('noticias', NoticiasController::class)->names('noticias');

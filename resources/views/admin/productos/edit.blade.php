@@ -35,7 +35,7 @@
                         @enderror
                         </div>
                         <div class="w-2/3 inline">
-                            <input type="cost" name="cost" value="{{$product->cost}}" id="" class=" rounded-lg border-3 border-red-300"  >
+                            <input type="text" name="cost" value="{{$product->cost}}" id="" class=" rounded-lg border-3 border-red-300"  >
                         </div>
                     </div>
                     <div class="row w-full">

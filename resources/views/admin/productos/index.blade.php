@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <a href="{{route('productos.create')}}" class="bg-blue-300 px-5 mx-5 rounded-full hover:bg-blue-600 hover:text-white">Crear nuevo</a>
+                @livewire('show-posts')
                 
                 <div class="todo">
                     @foreach ($products as $product)

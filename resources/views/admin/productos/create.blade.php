@@ -76,6 +76,7 @@
                         </div>
                     </div>
                     <input type="submit" value="Crear" class="bg-blue-300 hover:bg-blue-600 hover:text-white font-semibold m-3 rounded-full">
+                
                 </div>
             </form>
             </div>
