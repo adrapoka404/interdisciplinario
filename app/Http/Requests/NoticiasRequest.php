@@ -25,11 +25,28 @@ class NoticiasRequest extends FormRequest
     {
         return [
             //
-            'name'          => 'required',
-            'editor'        => 'required',
-            'case'          => 'required',
-            'created_at'    => 'required',
+            'name'          => 'required|max:30|min:5|unique:notices',
+            'editor'        => 'required|max:30|min:5|alpha',
+            'case'          => 'required|max:40|min:15',
             'status'        => 'required',
         ];
     }
+    public function messages()
+{
+    return [
+        'name.required' => 'El nombre de la noticia es necesario',
+        'name.max' => 'El nombre debe contener máximo 30 caracteres',
+        'name.min' => 'El nombre debe contener al menos 5 caracteres',
+        'name.unique' => 'Este nombre ya existe !',
+
+        'editor.required'   => 'El nombre del editor es necesario',
+        'editor.max' => 'El nombre debe contener máximo 30 caracteres',
+        'editor.min'  => 'El nombre debe contener al menos 5 caracteres',
+        'editor.alpha' => 'No se admiten números',
+
+        'case.required'   => 'Describir el caso de la noticia es requerido',
+        'case.max' => 'El caso debe contener máximo 40 caracteres',
+        'case.min'  => 'El caso debe contener al menos 15 caracteres',
+    ];
+}
 }

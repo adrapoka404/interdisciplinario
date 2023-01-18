@@ -93,7 +93,7 @@ class ProductosController extends Controller
         $product->name       = $request->name;
         $product->cost      = $request->cost;
         $product->mark = $request->mark;
-        $product->description  = $request->description;
+        // $product->description  = $request->description;
         $product->status     = $request->status;
 
         $product->save();
