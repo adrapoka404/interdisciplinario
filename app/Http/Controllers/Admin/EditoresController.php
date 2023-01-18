@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Editor;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\EditoresRequest;
+
 class EditoresController extends Controller
 {
     /**
@@ -37,15 +39,15 @@ class EditoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EditoresRequest $request)
     {
-        $request->validate([
-            'name'          => 'required',
-            'mail'          => 'required',
-            'speciality'    => 'required',
-            'semblance'     => 'required',
-            'status'        => 'required'
-        ]);
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'mail'          => 'required',
+        //     'speciality'    => 'required',
+        //     'semblance'     => 'required',
+        //     'status'        => 'required'
+        // ]);
 
         $editor = new Editor();
         $editor->create($request->all());
@@ -84,15 +86,15 @@ class EditoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditoresRequest $request, $id)
     {
-        $request->validate([
-            'name'          => 'required',
-            'mail'          => 'required',
-            'speciality'    => 'required',
-            'semblance'     => 'required',
-            'status'        => 'required'
-        ]);
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'mail'          => 'required',
+        //     'speciality'    => 'required',
+        //     'semblance'     => 'required',
+        //     'status'        => 'required'
+        // ]);
 
         $editor = Editor::find($id);
         $editor->name       = $request->name;

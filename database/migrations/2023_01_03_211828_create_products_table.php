@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('cost');
             $table->string('mark');
-            $table->text('description');
+            // $table->text('description');
             $table->char('status')->default(0);
             $table->timestamps();
 

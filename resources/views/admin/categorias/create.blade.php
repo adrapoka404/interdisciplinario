@@ -15,21 +15,26 @@
                 <form action="{{route('categorias.store')}}" method="POST">
                     @csrf
                         <div class="row">
+
+                            @error('name')
+                            {{$message}}
+                            @enderror 
+
                             <label class="block m-4 px-8 ">
                                 <span class="text-gray-700">Categoría</span>
-                                @error('name')
-                                {{$message}}
-                                @enderror
-                                <input type="text" name="name" class="m-4 rounded-lg mt-1 inline " placeholder="A" />
+                               
+                                <input type="text" name="name" class="m-4 rounded-lg mt-1 inline " placeholder="A" value="{{ old('name') }}" />
                             </label>
                         </div>
                         <div class="row">
-                            <label class="block m-4 px-8 ">
-                                <span class="text-gray-700">Descripción</span>
-                                @error('description')
+                            
+                            @error('description')
                                 {{$message}}
                                 @enderror
-                                <input type="text" name="description"  class="m-4 rounded-lg mt-1 inline " placeholder="Categoria A" />
+                            <label class="block m-4 px-8 ">
+                                <span class="text-gray-700">Descripción</span>
+                                
+                                <input type="text" name="description"  class="m-4 rounded-lg mt-1 inline " placeholder="Categoria A" value="{{ old('description') }}" />
                             </label>
                         </div>
                         <div class="row">

@@ -6,6 +6,8 @@ use App\Models\Notice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\NoticiasRequest;
+
 class NoticiasController extends Controller
 {
     /**
@@ -36,16 +38,16 @@ class NoticiasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticiasRequest $request)
     {
-        $request->validate([
-            'name'          => 'required',
-            'editor'          => 'required',
-            'case'           => 'required',
-            'created_at'           => 'required',
-            'status'     => 'required',
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'editor'          => 'required',
+        //     'case'           => 'required',
+        //     'created_at'           => 'required',
+        //     'status'     => 'required',
             
-        ]);
+        // ]);
 
         $notice = new Notice();
         $notice->create($request->all());
@@ -85,17 +87,17 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NoticiasRequest $request, $id)
     {
         //
-        $request->validate([
-            'name'          => 'required',
-            'editor'        => 'required',
-            'case'          => 'required',
-            'created_at'          => 'required',
-            'status'          => 'required',
+        // $request->validate([
+        //     'name'          => 'required',
+        //     'editor'        => 'required',
+        //     'case'          => 'required',
+        //     'created_at'          => 'required',
+        //     'status'          => 'required',
             
-        ]);
+        // ]);
 
         $notice = Notice::find($id);
         $notice->name       = $request->name;
