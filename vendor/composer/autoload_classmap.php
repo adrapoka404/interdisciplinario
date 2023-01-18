@@ -28,13 +28,10 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
-<<<<<<< HEAD
-=======
     'App\\Http\\Requests\\CategoriasRequest' => $baseDir . '/app/Http/Requests/CategoriasRequest.php',
     'App\\Http\\Requests\\EditoresRequest' => $baseDir . '/app/Http/Requests/EditoresRequest.php',
     'App\\Http\\Requests\\NoticiasRequest' => $baseDir . '/app/Http/Requests/NoticiasRequest.php',
     'App\\Http\\Requests\\ProductosRequest' => $baseDir . '/app/Http/Requests/ProductosRequest.php',
->>>>>>> 3ff551f2de13670b6bb9e02f053cf705743ebd58
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Editor' => $baseDir . '/app/Models/Editor.php',
     'App\\Models\\Notice' => $baseDir . '/app/Models/Notice.php',
